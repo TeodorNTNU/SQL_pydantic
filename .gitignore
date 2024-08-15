@@ -10,6 +10,19 @@ __pycache__/
 # C extensions
 *.so
 
+# Ignore SQLite database files
+.weather_cache.sqlite
+api_data.db
+electricity_cache.sqlite
+
+
+# Ignore all SQLite database files
+*.sqlite
+
+# Ignore specific SQLite file types
+api_data.db
+
+
 poetry.lock
 
 # Ignore NorGPT_conv directory and its contents
