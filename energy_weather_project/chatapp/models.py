@@ -1,7 +1,5 @@
 from django.db import models
 
-from django.db import models
-
 class ElectricityData(models.Model):
     city = models.CharField(max_length=100, db_index=True)
     state = models.CharField(max_length=100, db_index=True)

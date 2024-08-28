@@ -1,0 +1,76 @@
+/* Apply dark grey background to the whole page */
+html, body {
+  background-color: #333; /* Dark grey background */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Adjust the root element to control width, height, and positioning */
+#root {
+  width: 100% !important; /* Make the width cover 80% of the viewport */
+  height: 70vh; /* Make the height cover 70% of the viewport */
+  margin: 0; /* Remove default margin */
+  padding: 2rem; /* Maintain some padding for layout aesthetics */
+  position: absolute; /* Use absolute positioning to control placement */
+  top: 15%; /* Position the top 15% from the top of the viewport */
+  right: -10%; /* Position the component 10% from the right of the viewport */
+  display: flex; /* Flexbox for centering content */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  text-align: center;
+  background-color: #333; /* Dark grey background */
+}
+
+/* Ensure MainContainer and its children also fill the space */
+.App {
+  width: 150%; /* Full width */
+  height: 100%; /* Full height */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  flex-grow: 1;
+}
+
+/* Logo styles */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Card styles */
+.card {
+  padding: 2em;
+}
+
+/* Read the docs link */
+.read-the-docs {
+  color: #888;
+}

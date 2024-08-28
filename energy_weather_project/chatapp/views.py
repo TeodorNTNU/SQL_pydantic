@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from channels.generic.websocket import AsyncWebsocketConsumer
 import json
-from el_weather import graph
+from graph import app
 
 # Create your views here.
 class ChatConsumer(AsyncWebsocketConsumer):
@@ -18,7 +18,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
         try:
             # Stream the response
-            async for chunk in graph.astream_events({'input': message}, version="v1"): #include_names=["Assistant"]):
+            async for chunk in app.astream_events({'input': message}, version="v1"): #include_names=["Assistant"]):
                 if chunk["event"] in ["on_parser_start", "on_parser_stream"]:
                     await self.send(text_data=json.dumps(chunk))
 
