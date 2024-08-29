@@ -2,7 +2,6 @@
 from langchain_core.messages import SystemMessage
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
-from el_weather import tools
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 import os
@@ -16,6 +15,7 @@ from langchain_core.runnables import (
     RunnableLambda,
     RunnableConfig
 )
+from chatapp.llm_tools import  tools
 
 from dotenv import load_dotenv
 
@@ -112,7 +112,7 @@ from langgraph.graph import END, START, StateGraph
 from langgraph.prebuilt import tools_condition
 
 # Graph
-graph = StateGraph(State)
+builder = StateGraph(State)
 
 # Define nodes: these do the work
 builder.add_node("assistant", Assistant(assistant_runnable))

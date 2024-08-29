@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django_sorcery',
     'daphne',
     'channels',
     'django.contrib.staticfiles',
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_sorcery.db.middleware.SQLAlchemyMiddleware',
 ]
 
 ROOT_URLCONF = 'energy_weather_project.urls'
@@ -84,6 +86,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# SQLAlchemy settings
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + str(BASE_DIR) + '/db.sqlite3'  # Adjusted setting name
+# POOL_RECYCLE = 3600  # Customize as needed
 
 
 # Password validation

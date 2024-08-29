@@ -1,30 +1,30 @@
-from django.db import models
+from django_sorcery.db import databases
+import datetime
 
-class ElectricityData(models.Model):
-    city = models.CharField(max_length=100, db_index=True)
-    state = models.CharField(max_length=100, db_index=True)
-    date = models.DateField(db_index=True)
-    region = models.CharField(max_length=100, db_index=True)
-    NOK_per_kWh = models.FloatField()
-    EUR_per_kWh = models.FloatField()
-    EXR = models.FloatField()
-    time_start = models.CharField(max_length=50)
-    time_end = models.CharField(max_length=50)
-    timestamp = models.DateTimeField(auto_now_add=True)
+# Get the default database connection
+db = databases.get("default")
 
-    class Meta:
-        db_table = 'electricity_prices'
+# Define ElectricityData model
+class ElectricityData(db.Model):
+    id = db.Column(db.Integer, primary_key=True, index=True)
+    city = db.Column(db.String, index=True)
+    state = db.Column(db.String, index=True)
+    date = db.Column(db.Date, index=True)
+    region = db.Column(db.String, index=True)
+    NOK_per_kWh = db.Column(db.Float)
+    EUR_per_kWh = db.Column(db.Float)
+    EXR = db.Column(db.Float)
+    time_start = db.Column(db.String)
+    time_end = db.Column(db.String)
+    timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
-
-class WeatherData(models.Model):
-    city = models.CharField(max_length=100, db_index=True)
-    state = models.CharField(max_length=100, db_index=True)
-    date = models.DateField(db_index=True)
-    temperature = models.FloatField()
-    time_start = models.CharField(max_length=50)
-    time_end = models.CharField(max_length=50)
-    timestamp = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        db_table = 'weather_data'
-
+# Define WeatherData model
+class WeatherData(db.Model):
+    id = db.Column(db.Integer, primary_key=True, index=True)
+    city = db.Column(db.String, index=True)
+    state = db.Column(db.String, index=True)
+    date = db.Column(db.Date, index=True)
+    temperature = db.Column(db.Float)
+    time_start = db.Column(db.String)
+    time_end = db.Column(db.String)
+    timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)

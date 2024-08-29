@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from channels.generic.websocket import AsyncWebsocketConsumer
 import json
-from graph import app
+from chatapp.graph import app
 
 # Create your views here.
 class ChatConsumer(AsyncWebsocketConsumer):
